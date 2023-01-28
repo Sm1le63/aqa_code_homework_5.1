@@ -1,5 +1,6 @@
 import com.github.javafaker.Faker;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -16,6 +17,9 @@ public class DataGenerator {
         long maxDay = LocalDate.now().plusMonths(3).toEpochDay();
         long randomDay = ThreadLocalRandom.current().nextLong(minDay, maxDay);
         return LocalDate.ofEpochDay(randomDay);
+    }
+    public static String getFormatDate(LocalDate date) {
+        return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
     public static String generateCity() {
